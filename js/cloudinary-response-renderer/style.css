@@ -1,0 +1,101 @@
+:root {
+    font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial;
+    --bgcolor: #5f73db;
+    --color: #f2f3f4;
+    --accent: #223388;
+    --gap: 1.25rem;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    padding: calc(var(--gap) * 2);
+    height: 100vh;
+    background: var(--bgcolor);
+    color: var(--color);
+}
+.container {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    gap: var(--gap);
+}
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--gap);
+}
+main section {
+    padding: var(--gap);
+    min-height: 200px;
+    background: var(--accent);
+    box-shadow: 2px 4px 8px rgba(0,0,0,0.5);
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#upload-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--gap);
+}
+#upload-form input {
+    width: 75%;
+    cursor: pointer;
+    border: none;
+    text-align: center;
+    background: var(--color);
+    color: var(--accent);
+    border-radius: 8px;
+    padding: 12px;
+    transition: background .5s ease-in;
+}
+#upload-form input:hover {
+    border: 2px solid var(--color);
+    background: var(--accent);
+    color: var(--color);
+}
+#upload-form button {
+    width: 100%;
+    cursor: pointer;
+    background: var(--accent);
+    color: var(--color);
+    border: 2px solid var(--color);
+    border-radius: 8px;
+    padding: 10px;
+    transition: all .3s ease-out;
+}
+#upload-form button:hover {
+    background: var(--color);
+    color: var(--accent);
+    border: 2px solid var(--accent);
+}
+.response-item {
+	padding: 8px;
+	border-bottom: 1px solid #444;
+	margin-bottom: 8px;
+}
+.response-item h4 {
+	margin: 0;
+	font-weight: bold;
+}
+.response-item pre {
+	white-space: pre-wrap;
+	margin: 4px 0 0;
+}
+/* MOBILE OVERRIDES */
+@media (max-width: 920px) {
+    body {
+        height: auto;
+        padding: var(--gap);
+    }
+    main {
+        grid-template-columns: 1fr;
+    }
+}
