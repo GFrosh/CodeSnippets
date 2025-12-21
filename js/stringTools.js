@@ -31,6 +31,13 @@ export default class StringTools {
         return text.trim().split(/\s+/).filter(Boolean).length;
     }
 
+    static minsRead(text) {
+        const seconds = this.wordCount(text) * 0.3;
+        const minutes = Math.round(seconds / 60);
+        const minutesRead = minutes > 1 ? `${minutes} minutes read` : `${minutes} minute read`;
+        return minutesRead;
+    }
+
     static safe(text = '') {
         return text.replace(/\s+/g, ' ').trim();
     }
@@ -43,7 +50,7 @@ export default class StringTools {
         return text.toLowerCase().includes(search.toLowerCase());
     }
 
-    static tagify(tags) {
+    static tagify(tags = '') {
         return tags
         .toLowerCase()
         .split(',')
@@ -51,5 +58,10 @@ export default class StringTools {
         .filter(Boolean)
         .map(tag => `#${tag}`)
         .join(' ');
+    }
+
+    static categorize(category = []) {
+        return category.map(c => c.toUpperCase())
+        .join(" | ");
     }
 }
