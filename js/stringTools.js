@@ -42,4 +42,14 @@ export default class StringTools {
     static contains(text = '', search = '') {
         return text.toLowerCase().includes(search.toLowerCase());
     }
+
+    static tagify(tags) {
+        return tags
+        .toLowerCase()
+        .split(',')
+        .map(tag => tag.trim())
+        .filter(Boolean)
+        .map(tag => `#${tag}`)
+        .join(' ');
+    }
 }
