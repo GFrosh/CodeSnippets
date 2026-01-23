@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Form-reveal</title>
+  <style>
+  body {
+      align-items: center;
+      text-align: center;
+      background: yellow;
+  }
+    .signup-form {
+  width: 750px;
+  margin: auto;
+  background-color: white;
+  padding: 2rem;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.field,
+.submit-btn {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transform: translateY(10px);
+  transition: all 0.4s ease;
+}
+
+.field.active,
+.submit-btn.active {
+  opacity: 1;
+  max-height: 80px;
+  transform: translateY(0);
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+button {
+    border: 1px solid black;
+    border-radius: 10px;
+    background: yellow;
+    padding: 5px;
+    color: black;
+}
+  </style>
+</head>
+<body>
+  <form class="signup-form">
+      <h1>form reveal</h1>
+  <div class="field active">
+    <input type="text" placeholder="Username" />
+  </div>
+
+  <div class="field">
+    <input type="email" placeholder="Email" />
+  </div>
+
+  <div class="field">
+    <input type="password" placeholder="Password" />
+  </div>
+
+  <button type="submit" class="submit-btn">Sign Up</button>
+</form>
+</body>
+
+  <script>
+    const fields = document.querySelectorAll('.field');
+const submitBtn = document.querySelector('.submit-btn');
+
+fields.forEach((field, index) => {
+  const input = field.querySelector('input');
+
+  input.addEventListener('input', () => {
+    if (input.value.trim() !== '') {
+      if (fields[index + 1]) {
+        fields[index + 1].classList.add('active');
+      } else {
+        submitBtn.classList.add('active');
+      }
+    }
+  });
+});
+  </script>
+</body>
+</html>
