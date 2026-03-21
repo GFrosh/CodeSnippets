@@ -37,7 +37,7 @@
     </p>
   </div>
 
-  
+
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const copyBtn = document.getElementById("copy-btn");
@@ -50,22 +50,22 @@
           if (navigator.clipboard && window.isSecureContext) {
             await navigator.clipboard.writeText(textInput.value);
           } else {
-            // Fallback for local file:// testing or older browsers
+            // fallback for local file:// testing or older browsers
             textInput.select();
             document.execCommand("copy");
-            // Deselect the text so it doesn't stay highlighted
+            // deselect the text so it doesn't stay highlighted
             window.getSelection().removeAllRanges();
           }
 
-          // 1. Change button text to "Copied!"
+          // change button text to "copied!"
           copyBtn.textContent = "Copied!";
-          // 2. Change button background color to green
+          // change button background color to green
           copyBtn.classList.replace("bg-blue-600", "bg-green-600");
           copyBtn.classList.replace("hover:bg-blue-700", "hover:bg-green-700");
-          // 3. Show the success message below the input
+          // show the success message below the input
           feedbackMsg.classList.remove("opacity-0");
 
-          // Reset everything back to normal after 2 seconds
+          // reset everything back to normal after 2 seconds
           setTimeout(() => {
             copyBtn.textContent = "Copy";
             copyBtn.classList.replace("bg-green-600", "bg-blue-600");
