@@ -35,3 +35,28 @@ pool.connect((err, client, release) => {
 module.exports = {
   query: (text, params) => pool.query(text, params),
 };
+
+
+
+
+
+// AN ADDITION...
+// IF YOU WANT TO USE THE POOL TO PERFORM QUERIES DIRECTLY IN THIS FILE, YOU CAN DO SO LIKE THIS:
+
+/* 
+const db = {
+    query: (text, params) => pool.query(text, params),
+
+    get: async (text, params) => {
+      const { rows } = await pool.query(text, params);
+      return rows[0];
+    },
+
+    all: async (text, params) => {
+      const { rows } = await pool.query(text, params);
+      return rows;
+    },
+
+    pool // expose the pool for more advanced usage if needed
+};
+*/
